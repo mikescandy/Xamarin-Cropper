@@ -99,7 +99,7 @@ namespace App4
         {
             base.OnActivityResult(requestCode, resultCode, data);
 
-            if (requestCode == CropImage.PickImagePermissionsRequestCode && resultCode == Result.Ok)
+            if (requestCode == CropImage.PickImageChooserRequestCode && resultCode == Result.Ok)
             {
                 var imageUri = CropImage.GetPickImageResultUri(this, data);
 
@@ -536,8 +536,9 @@ namespace App4
     public bool showProgressBar;
 }
 
-public class CropResultActivity : Activity
-{
+    [Activity(Label = "App4", MainLauncher = false, Icon = "@drawable/icon", Theme = "@style/Theme.AppCompat")]
+    public class CropResultActivity : AppCompatActivity
+    {
 
     /**
      * The image to show in the activity.
@@ -590,7 +591,8 @@ public class CropResultActivity : Activity
         base.OnBackPressed();
     }
 
-    public void onImageViewClicked(View view)
+        [Export("onImageViewClicked")]
+        public void onImageViewClicked(View view)
     {
         releaseBitmap();
         Finish();
