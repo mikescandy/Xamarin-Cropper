@@ -350,89 +350,89 @@ namespace App4
 			// aapt resource value: 0x7f01007e
 			public const int controlBackground = 2130772094;
 			
-			// aapt resource value: 0x7f0100f3
-			public const int cropAspectRatioX = 2130772211;
+			// aapt resource value: 0x7f0100d7
+			public const int cropAspectRatioX = 2130772183;
 			
-			// aapt resource value: 0x7f0100f4
-			public const int cropAspectRatioY = 2130772212;
+			// aapt resource value: 0x7f0100d8
+			public const int cropAspectRatioY = 2130772184;
 			
-			// aapt resource value: 0x7f0100f0
-			public const int cropAutoZoomEnabled = 2130772208;
+			// aapt resource value: 0x7f0100d4
+			public const int cropAutoZoomEnabled = 2130772180;
 			
-			// aapt resource value: 0x7f0100fe
-			public const int cropBackgroundColor = 2130772222;
+			// aapt resource value: 0x7f0100e2
+			public const int cropBackgroundColor = 2130772194;
 			
-			// aapt resource value: 0x7f0100fb
-			public const int cropBorderCornerColor = 2130772219;
+			// aapt resource value: 0x7f0100df
+			public const int cropBorderCornerColor = 2130772191;
 			
-			// aapt resource value: 0x7f0100fa
-			public const int cropBorderCornerLength = 2130772218;
+			// aapt resource value: 0x7f0100de
+			public const int cropBorderCornerLength = 2130772190;
 			
-			// aapt resource value: 0x7f0100f9
-			public const int cropBorderCornerOffset = 2130772217;
+			// aapt resource value: 0x7f0100dd
+			public const int cropBorderCornerOffset = 2130772189;
 			
-			// aapt resource value: 0x7f0100f8
-			public const int cropBorderCornerThickness = 2130772216;
+			// aapt resource value: 0x7f0100dc
+			public const int cropBorderCornerThickness = 2130772188;
 			
-			// aapt resource value: 0x7f0100f7
-			public const int cropBorderLineColor = 2130772215;
+			// aapt resource value: 0x7f0100db
+			public const int cropBorderLineColor = 2130772187;
 			
-			// aapt resource value: 0x7f0100f6
-			public const int cropBorderLineThickness = 2130772214;
+			// aapt resource value: 0x7f0100da
+			public const int cropBorderLineThickness = 2130772186;
 			
-			// aapt resource value: 0x7f0100f2
-			public const int cropFixAspectRatio = 2130772210;
+			// aapt resource value: 0x7f0100d6
+			public const int cropFixAspectRatio = 2130772182;
 			
-			// aapt resource value: 0x7f0100ed
-			public const int cropGuidelines = 2130772205;
+			// aapt resource value: 0x7f0100d1
+			public const int cropGuidelines = 2130772177;
 			
-			// aapt resource value: 0x7f0100fd
-			public const int cropGuidelinesColor = 2130772221;
+			// aapt resource value: 0x7f0100e1
+			public const int cropGuidelinesColor = 2130772193;
 			
-			// aapt resource value: 0x7f0100fc
-			public const int cropGuidelinesThickness = 2130772220;
+			// aapt resource value: 0x7f0100e0
+			public const int cropGuidelinesThickness = 2130772192;
 			
-			// aapt resource value: 0x7f0100f5
-			public const int cropInitialCropWindowPaddingRatio = 2130772213;
+			// aapt resource value: 0x7f0100d9
+			public const int cropInitialCropWindowPaddingRatio = 2130772185;
 			
-			// aapt resource value: 0x7f010108
-			public const int cropMaxCropResultHeightPX = 2130772232;
+			// aapt resource value: 0x7f0100ec
+			public const int cropMaxCropResultHeightPX = 2130772204;
 			
-			// aapt resource value: 0x7f010107
-			public const int cropMaxCropResultWidthPX = 2130772231;
+			// aapt resource value: 0x7f0100eb
+			public const int cropMaxCropResultWidthPX = 2130772203;
 			
-			// aapt resource value: 0x7f0100f1
-			public const int cropMaxZoom = 2130772209;
+			// aapt resource value: 0x7f0100d5
+			public const int cropMaxZoom = 2130772181;
 			
-			// aapt resource value: 0x7f010106
-			public const int cropMinCropResultHeightPX = 2130772230;
+			// aapt resource value: 0x7f0100ea
+			public const int cropMinCropResultHeightPX = 2130772202;
 			
-			// aapt resource value: 0x7f010105
-			public const int cropMinCropResultWidthPX = 2130772229;
+			// aapt resource value: 0x7f0100e9
+			public const int cropMinCropResultWidthPX = 2130772201;
 			
-			// aapt resource value: 0x7f010104
-			public const int cropMinCropWindowHeight = 2130772228;
+			// aapt resource value: 0x7f0100e8
+			public const int cropMinCropWindowHeight = 2130772200;
 			
-			// aapt resource value: 0x7f010103
-			public const int cropMinCropWindowWidth = 2130772227;
+			// aapt resource value: 0x7f0100e7
+			public const int cropMinCropWindowWidth = 2130772199;
 			
-			// aapt resource value: 0x7f0100ee
-			public const int cropScaleType = 2130772206;
+			// aapt resource value: 0x7f0100d2
+			public const int cropScaleType = 2130772178;
 			
-			// aapt resource value: 0x7f0100ef
-			public const int cropShape = 2130772207;
+			// aapt resource value: 0x7f0100d3
+			public const int cropShape = 2130772179;
 			
-			// aapt resource value: 0x7f010101
-			public const int cropShowCropOverlay = 2130772225;
+			// aapt resource value: 0x7f0100e5
+			public const int cropShowCropOverlay = 2130772197;
 			
-			// aapt resource value: 0x7f010102
-			public const int cropShowProgressBar = 2130772226;
+			// aapt resource value: 0x7f0100e6
+			public const int cropShowProgressBar = 2130772198;
 			
-			// aapt resource value: 0x7f0100ff
-			public const int cropSnapRadius = 2130772223;
+			// aapt resource value: 0x7f0100e3
+			public const int cropSnapRadius = 2130772195;
 			
-			// aapt resource value: 0x7f010100
-			public const int cropTouchRadius = 2130772224;
+			// aapt resource value: 0x7f0100e4
+			public const int cropTouchRadius = 2130772196;
 			
 			// aapt resource value: 0x7f01000f
 			public const int customNavigationLayout = 2130771983;
@@ -572,8 +572,8 @@ namespace App4
 			// aapt resource value: 0x7f01009f
 			public const int measureWithLargestChild = 2130772127;
 			
-			// aapt resource value: 0x7f0100dd
-			public const int morphButtonStyle = 2130772189;
+			// aapt resource value: 0x7f0100f9
+			public const int morphButtonStyle = 2130772217;
 			
 			// aapt resource value: 0x7f010021
 			public const int multiChoiceItemLayout = 2130772001;
@@ -791,86 +791,86 @@ namespace App4
 			// aapt resource value: 0x7f0100b6
 			public const int track = 2130772150;
 			
-			// aapt resource value: 0x7f0100d1
-			public const int vc_autoMirrored = 2130772177;
+			// aapt resource value: 0x7f0100ed
+			public const int vc_autoMirrored = 2130772205;
 			
-			// aapt resource value: 0x7f0100d8
-			public const int vc_autoStartAnimation = 2130772184;
+			// aapt resource value: 0x7f0100f4
+			public const int vc_autoStartAnimation = 2130772212;
 			
-			// aapt resource value: 0x7f0100d9
-			public const int vc_backgroundTint = 2130772185;
+			// aapt resource value: 0x7f0100f5
+			public const int vc_backgroundTint = 2130772213;
 			
-			// aapt resource value: 0x7f0100da
-			public const int vc_backgroundTintMode = 2130772186;
+			// aapt resource value: 0x7f0100f6
+			public const int vc_backgroundTintMode = 2130772214;
 			
-			// aapt resource value: 0x7f0100d7
-			public const int vc_endDrawable = 2130772183;
+			// aapt resource value: 0x7f0100f3
+			public const int vc_endDrawable = 2130772211;
 			
-			// aapt resource value: 0x7f0100e6
-			public const int vc_fillAlpha = 2130772198;
+			// aapt resource value: 0x7f010102
+			public const int vc_fillAlpha = 2130772226;
 			
-			// aapt resource value: 0x7f0100e5
-			public const int vc_fillColor = 2130772197;
+			// aapt resource value: 0x7f010101
+			public const int vc_fillColor = 2130772225;
 			
-			// aapt resource value: 0x7f0100db
-			public const int vc_foregroundTint = 2130772187;
+			// aapt resource value: 0x7f0100f7
+			public const int vc_foregroundTint = 2130772215;
 			
-			// aapt resource value: 0x7f0100dc
-			public const int vc_foregroundTintMode = 2130772188;
+			// aapt resource value: 0x7f0100f8
+			public const int vc_foregroundTintMode = 2130772216;
 			
-			// aapt resource value: 0x7f0100d2
-			public const int vc_pathData = 2130772178;
+			// aapt resource value: 0x7f0100ee
+			public const int vc_pathData = 2130772206;
 			
-			// aapt resource value: 0x7f0100d6
-			public const int vc_startDrawable = 2130772182;
+			// aapt resource value: 0x7f0100f2
+			public const int vc_startDrawable = 2130772210;
 			
-			// aapt resource value: 0x7f0100e4
-			public const int vc_strokeAlpha = 2130772196;
+			// aapt resource value: 0x7f010100
+			public const int vc_strokeAlpha = 2130772224;
 			
-			// aapt resource value: 0x7f0100e3
-			public const int vc_strokeColor = 2130772195;
+			// aapt resource value: 0x7f0100ff
+			public const int vc_strokeColor = 2130772223;
 			
-			// aapt resource value: 0x7f0100ea
-			public const int vc_strokeLineCap = 2130772202;
+			// aapt resource value: 0x7f010106
+			public const int vc_strokeLineCap = 2130772230;
 			
-			// aapt resource value: 0x7f0100eb
-			public const int vc_strokeLineJoin = 2130772203;
+			// aapt resource value: 0x7f010107
+			public const int vc_strokeLineJoin = 2130772231;
 			
-			// aapt resource value: 0x7f0100ec
-			public const int vc_strokeMiterLimit = 2130772204;
+			// aapt resource value: 0x7f010108
+			public const int vc_strokeMiterLimit = 2130772232;
 			
-			// aapt resource value: 0x7f0100e2
-			public const int vc_strokeWidth = 2130772194;
+			// aapt resource value: 0x7f0100fe
+			public const int vc_strokeWidth = 2130772222;
 			
-			// aapt resource value: 0x7f0100d3
-			public const int vc_tint = 2130772179;
+			// aapt resource value: 0x7f0100ef
+			public const int vc_tint = 2130772207;
 			
-			// aapt resource value: 0x7f0100d4
-			public const int vc_tintMode = 2130772180;
+			// aapt resource value: 0x7f0100f0
+			public const int vc_tintMode = 2130772208;
 			
-			// aapt resource value: 0x7f0100e0
-			public const int vc_translateX = 2130772192;
+			// aapt resource value: 0x7f0100fc
+			public const int vc_translateX = 2130772220;
 			
-			// aapt resource value: 0x7f0100e1
-			public const int vc_translateY = 2130772193;
+			// aapt resource value: 0x7f0100fd
+			public const int vc_translateY = 2130772221;
 			
-			// aapt resource value: 0x7f0100e8
-			public const int vc_trimPathEnd = 2130772200;
+			// aapt resource value: 0x7f010104
+			public const int vc_trimPathEnd = 2130772228;
 			
-			// aapt resource value: 0x7f0100e9
-			public const int vc_trimPathOffset = 2130772201;
+			// aapt resource value: 0x7f010105
+			public const int vc_trimPathOffset = 2130772229;
 			
-			// aapt resource value: 0x7f0100e7
-			public const int vc_trimPathStart = 2130772199;
+			// aapt resource value: 0x7f010103
+			public const int vc_trimPathStart = 2130772227;
 			
-			// aapt resource value: 0x7f0100d5
-			public const int vc_valueType = 2130772181;
+			// aapt resource value: 0x7f0100f1
+			public const int vc_valueType = 2130772209;
 			
-			// aapt resource value: 0x7f0100df
-			public const int vc_viewportHeight = 2130772191;
+			// aapt resource value: 0x7f0100fb
+			public const int vc_viewportHeight = 2130772219;
 			
-			// aapt resource value: 0x7f0100de
-			public const int vc_viewportWidth = 2130772190;
+			// aapt resource value: 0x7f0100fa
+			public const int vc_viewportWidth = 2130772218;
 			
 			// aapt resource value: 0x7f0100b1
 			public const int voiceIcon = 2130772145;
@@ -1795,8 +1795,8 @@ namespace App4
 			// aapt resource value: 0x7f0b0036
 			public const int activity_chooser_view_content = 2131427382;
 			
-			// aapt resource value: 0x7f0b0021
-			public const int add = 2131427361;
+			// aapt resource value: 0x7f0b002a
+			public const int add = 2131427370;
 			
 			// aapt resource value: 0x7f0b0042
 			public const int alertTitle = 2131427394;
@@ -1807,11 +1807,11 @@ namespace App4
 			// aapt resource value: 0x7f0b0019
 			public const int beginning = 2131427353;
 			
-			// aapt resource value: 0x7f0b0028
-			public const int bevel = 2131427368;
+			// aapt resource value: 0x7f0b0031
+			public const int bevel = 2131427377;
 			
-			// aapt resource value: 0x7f0b0025
-			public const int butt = 2131427365;
+			// aapt resource value: 0x7f0b002e
+			public const int butt = 2131427374;
 			
 			// aapt resource value: 0x7f0b003d
 			public const int buttonPanel = 2131427389;
@@ -1819,14 +1819,14 @@ namespace App4
 			// aapt resource value: 0x7f0b007c
 			public const int cancel_action = 2131427452;
 			
-			// aapt resource value: 0x7f0b002d
-			public const int center = 2131427373;
+			// aapt resource value: 0x7f0b0024
+			public const int center = 2131427364;
 			
-			// aapt resource value: 0x7f0b002e
-			public const int centerCrop = 2131427374;
+			// aapt resource value: 0x7f0b0025
+			public const int centerCrop = 2131427365;
 			
-			// aapt resource value: 0x7f0b002f
-			public const int centerInside = 2131427375;
+			// aapt resource value: 0x7f0b0026
+			public const int centerInside = 2131427366;
 			
 			// aapt resource value: 0x7f0b004b
 			public const int checkbox = 2131427403;
@@ -1936,11 +1936,11 @@ namespace App4
 			// aapt resource value: 0x7f0b004a
 			public const int expanded_menu = 2131427402;
 			
-			// aapt resource value: 0x7f0b0030
-			public const int fitCenter = 2131427376;
+			// aapt resource value: 0x7f0b0027
+			public const int fitCenter = 2131427367;
 			
-			// aapt resource value: 0x7f0b0022
-			public const int floatType = 2131427362;
+			// aapt resource value: 0x7f0b002b
+			public const int floatType = 2131427371;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int home = 2131427332;
@@ -1960,8 +1960,8 @@ namespace App4
 			// aapt resource value: 0x7f0b0086
 			public const int info = 2131427462;
 			
-			// aapt resource value: 0x7f0b0023
-			public const int intType = 2131427363;
+			// aapt resource value: 0x7f0b002c
+			public const int intType = 2131427372;
 			
 			// aapt resource value: 0x7f0b0080
 			public const int line1 = 2131427456;
@@ -1987,8 +1987,8 @@ namespace App4
 			// aapt resource value: 0x7f0b001b
 			public const int middle = 2131427355;
 			
-			// aapt resource value: 0x7f0b0029
-			public const int miter = 2131427369;
+			// aapt resource value: 0x7f0b0032
+			public const int miter = 2131427378;
 			
 			// aapt resource value: 0x7f0b0014
 			public const int multiply = 2131427348;
@@ -2005,23 +2005,23 @@ namespace App4
 			// aapt resource value: 0x7f0b000a
 			public const int normal = 2131427338;
 			
-			// aapt resource value: 0x7f0b002a
-			public const int off = 2131427370;
+			// aapt resource value: 0x7f0b0021
+			public const int off = 2131427361;
 			
-			// aapt resource value: 0x7f0b002b
-			public const int on = 2131427371;
+			// aapt resource value: 0x7f0b0022
+			public const int on = 2131427362;
 			
-			// aapt resource value: 0x7f0b002c
-			public const int onTouch = 2131427372;
+			// aapt resource value: 0x7f0b0023
+			public const int onTouch = 2131427363;
 			
-			// aapt resource value: 0x7f0b0031
-			public const int oval = 2131427377;
+			// aapt resource value: 0x7f0b0028
+			public const int oval = 2131427368;
 			
 			// aapt resource value: 0x7f0b003f
 			public const int parentPanel = 2131427391;
 			
-			// aapt resource value: 0x7f0b0024
-			public const int pathType = 2131427364;
+			// aapt resource value: 0x7f0b002d
+			public const int pathType = 2131427373;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int progress_circular = 2131427333;
@@ -2032,8 +2032,8 @@ namespace App4
 			// aapt resource value: 0x7f0b004d
 			public const int radio = 2131427405;
 			
-			// aapt resource value: 0x7f0b0032
-			public const int rectangle = 2131427378;
+			// aapt resource value: 0x7f0b0029
+			public const int rectangle = 2131427369;
 			
 			// aapt resource value: 0x7f0b0063
 			public const int resultImageText = 2131427427;
@@ -2041,8 +2041,8 @@ namespace App4
 			// aapt resource value: 0x7f0b0062
 			public const int resultImageView = 2131427426;
 			
-			// aapt resource value: 0x7f0b0026
-			public const int round = 2131427366;
+			// aapt resource value: 0x7f0b002f
+			public const int round = 2131427375;
 			
 			// aapt resource value: 0x7f0b0015
 			public const int screen = 2131427349;
@@ -2107,8 +2107,8 @@ namespace App4
 			// aapt resource value: 0x7f0b0007
 			public const int split_action_bar = 2131427335;
 			
-			// aapt resource value: 0x7f0b0027
-			public const int square = 2131427367;
+			// aapt resource value: 0x7f0b0030
+			public const int square = 2131427376;
 			
 			// aapt resource value: 0x7f0b0016
 			public const int src_atop = 2131427350;
@@ -2438,17 +2438,17 @@ namespace App4
 			// aapt resource value: 0x7f05001f
 			public const int app_title = 2131034143;
 			
-			// aapt resource value: 0x7f050019
-			public const int crop_image_activity_title = 2131034137;
+			// aapt resource value: 0x7f050014
+			public const int crop_image_activity_title = 2131034132;
 			
-			// aapt resource value: 0x7f05001a
-			public const int crop_image_menu_crop = 2131034138;
+			// aapt resource value: 0x7f050015
+			public const int crop_image_menu_crop = 2131034133;
 			
-			// aapt resource value: 0x7f05001b
-			public const int crop_image_menu_rotate_left = 2131034139;
+			// aapt resource value: 0x7f050016
+			public const int crop_image_menu_rotate_left = 2131034134;
 			
-			// aapt resource value: 0x7f05001c
-			public const int crop_image_menu_rotate_right = 2131034140;
+			// aapt resource value: 0x7f050017
+			public const int crop_image_menu_rotate_right = 2131034135;
 			
 			// aapt resource value: 0x7f05002a
 			public const int drawer_option_customized_overlay = 2131034154;
@@ -2516,23 +2516,23 @@ namespace App4
 			// aapt resource value: 0x7f050022
 			public const int main_drawer_open = 2131034146;
 			
-			// aapt resource value: 0x7f050014
-			public const int path_arrow = 2131034132;
+			// aapt resource value: 0x7f050019
+			public const int path_arrow = 2131034137;
 			
-			// aapt resource value: 0x7f050015
-			public const int path_drawer = 2131034133;
+			// aapt resource value: 0x7f05001a
+			public const int path_drawer = 2131034138;
 			
-			// aapt resource value: 0x7f050016
-			public const int path_pause = 2131034134;
+			// aapt resource value: 0x7f05001b
+			public const int path_pause = 2131034139;
 			
-			// aapt resource value: 0x7f050017
-			public const int path_play = 2131034135;
-			
-			// aapt resource value: 0x7f050018
-			public const int path_stop = 2131034136;
+			// aapt resource value: 0x7f05001c
+			public const int path_play = 2131034140;
 			
 			// aapt resource value: 0x7f05001d
-			public const int pick_image_intent_chooser_title = 2131034141;
+			public const int path_stop = 2131034141;
+			
+			// aapt resource value: 0x7f050018
+			public const int pick_image_intent_chooser_title = 2131034136;
 			
 			// aapt resource value: 0x7f050020
 			public const int result_image_desc = 2131034144;
@@ -3742,7 +3742,7 @@ namespace App4
 					16843200,
 					16843486,
 					16843487,
-					2130772181};
+					2130772209};
 			
 			// aapt resource value: 1
 			public const int Animator_android_duration = 1;
@@ -4259,34 +4259,34 @@ namespace App4
 			public const int CompoundButton_buttonTintMode = 2;
 			
 			public static int[] CropImageView = new int[] {
-					2130772205,
-					2130772206,
-					2130772207,
-					2130772208,
-					2130772209,
-					2130772210,
-					2130772211,
-					2130772212,
-					2130772213,
-					2130772214,
-					2130772215,
-					2130772216,
-					2130772217,
-					2130772218,
-					2130772219,
-					2130772220,
-					2130772221,
-					2130772222,
-					2130772223,
-					2130772224,
-					2130772225,
-					2130772226,
-					2130772227,
-					2130772228,
-					2130772229,
-					2130772230,
-					2130772231,
-					2130772232};
+					2130772177,
+					2130772178,
+					2130772179,
+					2130772180,
+					2130772181,
+					2130772182,
+					2130772183,
+					2130772184,
+					2130772185,
+					2130772186,
+					2130772187,
+					2130772188,
+					2130772189,
+					2130772190,
+					2130772191,
+					2130772192,
+					2130772193,
+					2130772194,
+					2130772195,
+					2130772196,
+					2130772197,
+					2130772198,
+					2130772199,
+					2130772200,
+					2130772201,
+					2130772202,
+					2130772203,
+					2130772204};
 			
 			// aapt resource value: 6
 			public const int CropImageView_cropAspectRatioX = 6;
@@ -4604,13 +4604,13 @@ namespace App4
 			
 			public static int[] MorphButton = new int[] {
 					16843037,
-					2130772182,
-					2130772183,
-					2130772184,
-					2130772185,
-					2130772186,
-					2130772187,
-					2130772188};
+					2130772210,
+					2130772211,
+					2130772212,
+					2130772213,
+					2130772214,
+					2130772215,
+					2130772216};
 			
 			// aapt resource value: 0
 			public const int MorphButton_android_scaleType = 0;
@@ -4654,7 +4654,7 @@ namespace App4
 			
 			public static int[] PropertyAnimator = new int[] {
 					16843489,
-					2130772178};
+					2130772206};
 			
 			// aapt resource value: 0
 			public const int PropertyAnimator_android_propertyName = 0;
@@ -4835,7 +4835,7 @@ namespace App4
 			public const int TextAppearance_textAllCaps = 8;
 			
 			public static int[] Theme = new int[] {
-					2130772189};
+					2130772217};
 			
 			// aapt resource value: 0
 			public const int Theme_morphButtonStyle = 0;
@@ -4947,11 +4947,11 @@ namespace App4
 					16843093,
 					16843097,
 					16843551,
-					2130772177,
-					2130772179,
-					2130772180,
-					2130772190,
-					2130772191};
+					2130772205,
+					2130772207,
+					2130772208,
+					2130772218,
+					2130772219};
 			
 			// aapt resource value: 3
 			public const int VectorDrawable_android_alpha = 3;
@@ -4982,7 +4982,7 @@ namespace App4
 			
 			public static int[] VectorDrawableClipPath = new int[] {
 					16842755,
-					2130772178};
+					2130772206};
 			
 			// aapt resource value: 0
 			public const int VectorDrawableClipPath_android_name = 0;
@@ -4997,8 +4997,8 @@ namespace App4
 					16843556,
 					16843557,
 					16843558,
-					2130772192,
-					2130772193};
+					2130772220,
+					2130772221};
 			
 			// aapt resource value: 0
 			public const int VectorDrawableGroup_android_name = 0;
@@ -5026,18 +5026,18 @@ namespace App4
 			
 			public static int[] VectorDrawablePath = new int[] {
 					16842755,
-					2130772178,
-					2130772194,
-					2130772195,
-					2130772196,
-					2130772197,
-					2130772198,
-					2130772199,
-					2130772200,
-					2130772201,
-					2130772202,
-					2130772203,
-					2130772204};
+					2130772206,
+					2130772222,
+					2130772223,
+					2130772224,
+					2130772225,
+					2130772226,
+					2130772227,
+					2130772228,
+					2130772229,
+					2130772230,
+					2130772231,
+					2130772232};
 			
 			// aapt resource value: 0
 			public const int VectorDrawablePath_android_name = 0;
