@@ -75,7 +75,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CropDemoPreset.cs" />
+    <Compile Include="CropImageViewOptions.cs" />
+    <Compile Include="CropResultActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="MainFragment.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
