@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>XamarinAndroidImageCropper</id>
-        <version>2.2.3.0</version>
+        <version>2.3.1.0</version>
         <title>Android Image Cropper</title>
         <authors>Michele Scandura</authors>
         <projectUrl>https://github.com/mikescandy/Xamarin-Cropper</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A Xamarin binding the Android Image Cropper library.</description>
         <summary>A Xamarin binding of the Android Image Cropper library.</summary>
-        <releaseNotes>Based on Android Image Cropper 2.2.3</releaseNotes>
+        <releaseNotes>Based on Android Image Cropper 2.3.1</releaseNotes>
         <tags>xamarin, android</tags>
     </metadata>
     <files>

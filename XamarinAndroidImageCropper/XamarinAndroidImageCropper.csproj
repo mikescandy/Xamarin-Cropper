@@ -63,7 +63,7 @@
   <ItemGroup>
     <None Include="Jars\AboutJars.txt" />
     <None Include="Additions\AboutAdditions.txt" />
-    <LibraryProjectZip Include="Jars\android-image-cropper-2.2.3.aar" />
+    <LibraryProjectZip Include="Jars\android-image-cropper-2.3.1.aar" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
