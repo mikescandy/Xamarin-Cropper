@@ -47,7 +47,6 @@ Add permissions to manifest
 
 2. Override `OnActivityResult` method in your activity to get crop result
  ```csharp
- @Override
 protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
  {
    if (requestCode == CropImage.PickImageChooserRequestCode) {
