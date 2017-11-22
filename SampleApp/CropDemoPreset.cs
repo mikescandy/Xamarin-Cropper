@@ -1,12 +1,12 @@
-namespace App4
+namespace SampleApp
 {
     public enum CropDemoPreset
     {
-        RECT,
-        CIRCULAR,
-        CUSTOMIZED_OVERLAY,
-        MIN_MAX_OVERRIDE,
-        SCALE_CENTER_INSIDE,
-        CUSTOM
+        Rect,
+        Circular,
+        CustomizedOverlay,
+        MinMaxOverride,
+        ScaleCenterInside,
+        Custom
     }
 }

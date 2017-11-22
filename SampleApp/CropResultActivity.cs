@@ -7,18 +7,18 @@ using Android.Views;
 using Android.Widget;
 using Java.Interop;
 
-namespace App4
+namespace SampleApp
 {
-    [Activity(Label = "App4", MainLauncher = false, Icon = "@drawable/icon", Theme = "@style/Theme.AppCompat")]
+    [Activity(MainLauncher = false, Theme = "@style/Theme.AppCompat")]
     public class CropResultActivity : AppCompatActivity
     {
 
         /**
      * The image to show in the activity.
      */
-        public static Bitmap mImage;
+        public static Bitmap Image;
 
-        private ImageView imageView;
+        private ImageView _imageView;
 
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -27,28 +27,29 @@ namespace App4
             RequestWindowFeature(WindowFeatures.NoTitle);
             SetContentView(Resource.Layout.activity_crop_result);
 
-            imageView = ((ImageView)FindViewById(Resource.Id.resultImageView));
-            imageView.SetBackgroundResource(Resource.Drawable.backdrop);
+            _imageView = ((ImageView)FindViewById(Resource.Id.resultImageView));
+            _imageView.SetBackgroundResource(Resource.Drawable.backdrop);
 
-            if (mImage != null)
+            var intent = Intent;
+            if (Image != null)
             {
-                imageView.SetImageBitmap(mImage);
-                double ratio = ((int)(10 * mImage.Width / (double)mImage.Height)) / 10d;
-                int byteCount = 0;
-                if (Android.OS.Build.VERSION.SdkInt >= Android.OS.Build.VERSION_CODES.HoneycombMr1)
+                _imageView.SetImageBitmap(Image);
+                var sampleSize = intent.GetIntExtra("SAMPLE_SIZE", 1);
+                var ratio = (int)(10 * Image.Width / (double)Image.Height) / 10d;
+                var byteCount = 0;
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.HoneycombMr1)
                 {
-                    byteCount = mImage.ByteCount / 1024;
+                    byteCount = Image.ByteCount / 1024;
                 }
-                var desc = "(" + mImage.Width + ", " + mImage.Height + "), Ratio: " + ratio + ", Bytes: " + byteCount + "K";
-                ((TextView)FindViewById(Resource.Id.resultImageText)).Text = desc;
+                var desc = $"({Image.Width}, {Image.Height}), Sample: {sampleSize}, Ratio: {ratio}, Bytes: {byteCount}K";
+                FindViewById<TextView>(Resource.Id.resultImageText).Text = desc;
             }
             else
             {
-                Intent intent = Intent;
-                var imageUri = (Android.Net.Uri)intent.GetParcelableExtra("URI");
+                var imageUri = intent.GetParcelableExtra("URI").JavaCast<Android.Net.Uri>();
                 if (imageUri != null)
                 {
-                    imageView.SetImageURI(imageUri);
+                    _imageView.SetImageURI(imageUri);
                 }
                 else
                 {
@@ -73,10 +74,10 @@ namespace App4
 
         private void releaseBitmap()
         {
-            if (mImage != null)
+            if (Image != null)
             {
-                mImage.Recycle();
-                mImage = null;
+                Image.Recycle();
+                Image = null;
             }
         }
     }

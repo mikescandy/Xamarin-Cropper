@@ -1,26 +1,33 @@
+using System;
 using Com.Theartofdev.Edmodo.Cropper;
 
-namespace App4
+namespace SampleApp
 {
     public class CropImageViewOptions
     {
+        public CropImageView.ScaleType ScaleType { get; set; } = CropImageView.ScaleType.CenterInside;
 
-        public CropImageView.ScaleType scaleType = CropImageView.ScaleType.CenterInside;
+        public CropImageView.CropShape CropShape { get; set; } = CropImageView.CropShape.Rectangle;
 
-        public CropImageView.CropShape cropShape = CropImageView.CropShape.Rectangle;
+        public CropImageView.Guidelines Guidelines { get; set; } = CropImageView.Guidelines.OnTouch;
 
-        public CropImageView.Guidelines guidelines = CropImageView.Guidelines.OnTouch;
+        public (int AspectRatioX, int AspectRatioY) AspectRatio { get; set; } = (1, 1);
 
-        public Android.Util.Pair aspectRatio = new Android.Util.Pair(1, 1);
+        public bool AutoZoomEnabled { get; set; }
 
-        public bool autoZoomEnabled;
+        public int MaxZoomLevel { get; set; }
 
-        public int maxZoomLevel;
+        public bool FixAspectRatio { get; set; }
 
-        public bool fixAspectRatio;
+        public bool Multitouch  { get; set; }
 
-        public bool showCropOverlay;
+        public bool ShowCropOverlay { get; set; }
 
-        public bool showProgressBar;
+        public bool ShowProgressBar { get; set; }
+
+        public bool FlipHorizontally { get; set; }
+
+        public bool FlipVertically { get; set; }
+
     }
 }
