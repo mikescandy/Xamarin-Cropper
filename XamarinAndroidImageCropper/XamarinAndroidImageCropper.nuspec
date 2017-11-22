@@ -3,21 +3,22 @@
     <metadata>
         <id>XamarinAndroidImageCropper</id>
         <version>2.5.1.0</version>
-        <authors>Michele Scandura</authors>
-		<owners>mikescandy</owners>
-		<projectUrl>https://github.com/mikescandy/Xamarin-Cropper</projectUrl>
-		<licenseUrl>https://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <title>Xamarin Android Image Cropper</title>
-		<description>A Xamarin binding the Android Image Cropper library.</description>
+        <authors>Michele Scandura</authors>
+        <owners>mikescandy</owners>
+        <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
+        <projectUrl>https://github.com/mikescandy/Xamarin-Cropper</projectUrl>
+        <iconUrl>https://github.com/mikescandy/Xamarin-Cropper/raw/master/art/web_art.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A Xamarin binding of the Android Image Cropper library.</description>
         <summary>A Xamarin binding of the Android Image Cropper library.</summary>
         <releaseNotes>Based on Android Image Cropper 2.5.1</releaseNotes>
+        <copyright>Copyright ©2017 mikescandy</copyright>
         <tags>xamarin, android, android-image-cropper, image-cropper</tags>
-		<iconUrl>https://github.com/mikescandy/Xamarin-Cropper/raw/master/art/web_hi_res_512.png</iconUrl>
-		<dependencies>
-+            <dependency id="Xamarin.Android.Support.v7.AppCompat" version="26.0.2" />
-+            <dependency id="Xamarin.Android.Support.Exif" version="26.0.2" />
-+       </dependencies>
+        <dependencies>
+            <dependency id="Xamarin.Android.Support.v7.AppCompat" version="26.0.2" />
+            <dependency id="Xamarin.Android.Support.Exif" version="26.0.2" />
+        </dependencies>
     </metadata>
     <files>
         <file src="bin\Release\XamarinAndroidImageCropper.dll" target="lib\MonoAndroid\XamarinAndroidImageCropper.dll" />
