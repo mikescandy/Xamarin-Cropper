@@ -13,7 +13,6 @@
         <summary>A Xamarin binding of the Android Image Cropper library.</summary>
         <releaseNotes>Based on Android Image Cropper 2.5.1</releaseNotes>
         <tags>xamarin, android, android-image-cropper, image-cropper</tags>
-		<owners>mikescandy</owners>
 		<iconUrl>https://github.com/mikescandy/Xamarin-Cropper/raw/master/art/web_hi_res_512.png</iconUrl>
 		<dependencies>
 +            <dependency id="Xamarin.Android.Support.v7.AppCompat" version="26.0.2" />
