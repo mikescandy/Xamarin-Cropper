@@ -1,4 +1,4 @@
-![Icon](https://github.com/mikescandy/Xamarin-Cropper/raw/master/art/web_hi_res_512.png) Xamarin Android Image Cropper
+![Icon](https://github.com/mikescandy/Xamarin-Cropper/raw/master/art/web_art.png) Xamarin Android Image Cropper
 =======
 
 A Xamarin Android binding library for [Android Image Cropper](https://github.com/ArthurHub/Android-Image-Cropper)
@@ -47,7 +47,6 @@ Add permissions to manifest
 
 2. Override `OnActivityResult` method in your activity to get crop result
  ```csharp
- @Override
 protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
  {
    if (requestCode == CropImage.PickImageChooserRequestCode) {
