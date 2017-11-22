@@ -1,46 +1,47 @@
-﻿using Android.Support.V7.App;
+﻿using System;
+using Android;
+using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.Widget;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using Com.Theartofdev.Edmodo.Cropper;
-using Android.App;
-using Android.Support.V4.Widget;
-using Android.Content.PM;
-using Android;
 using Java.Interop;
+using Uri = Android.Net.Uri;
 
-namespace App4
+namespace SampleApp
 {
-    [Activity(Label = "App4", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Theme.AppCompat")]
+    [Activity(Label = "@string/app_title", MainLauncher = true, Theme = "@style/Theme.AppCompat", Icon = "@drawable/ic_launcher")]
     public class MainActivity : AppCompatActivity
     {
 
         //region: Fields and Consts
 
-        DrawerLayout mDrawerLayout;
+        private DrawerLayout _drawerLayout;
 
-        private ActionBarDrawerToggle mDrawerToggle;
+        private ActionBarDrawerToggle _drawerToggle;
 
-        private MainFragment mCurrentFragment;
+        private MainFragment _currentFragment;
 
-        private Android.Net.Uri mCropImageUri;
+        private Uri _cropImageUri;
 
-        private CropImageViewOptions mCropImageViewOptions = new CropImageViewOptions();
+        private CropImageViewOptions _cropImageViewOptions = new CropImageViewOptions();
         //endregion
 
-        public void setCurrentFragment(MainFragment fragment)
+        public void SetCurrentFragment(MainFragment fragment)
         {
-            mCurrentFragment = fragment;
+            _currentFragment = fragment;
         }
 
-        public void setCurrentOptions(CropImageViewOptions options)
+        public void SetCurrentOptions(CropImageViewOptions options)
         {
-            mCropImageViewOptions = options;
-            updateDrawerTogglesByOptions(options);
+            _cropImageViewOptions = options;
+            UpdateDrawerTogglesByOptions(options);
         }
-
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -50,24 +51,23 @@ namespace App4
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetHomeButtonEnabled(true);
 
-            mDrawerLayout = (DrawerLayout)FindViewById(Resource.Id.drawer_layout);
+            _drawerLayout = (DrawerLayout)FindViewById(Resource.Id.drawer_layout);
 
-            mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, Resource.String.main_drawer_open, Resource.String.main_drawer_close);
-            mDrawerToggle.DrawerIndicatorEnabled = true;
-            mDrawerLayout.SetDrawerListener(mDrawerToggle);
+            _drawerToggle = new ActionBarDrawerToggle(this, _drawerLayout, Resource.String.main_drawer_open, Resource.String.main_drawer_close);
+            _drawerToggle.DrawerIndicatorEnabled = true;
+            _drawerLayout.SetDrawerListener(_drawerToggle);
 
             if (savedInstanceState == null)
             {
-                setMainFragmentByPreset(CropDemoPreset.RECT);
+                SetMainFragmentByPreset(CropDemoPreset.Rect);
             }
         }
-
 
         protected override void OnPostCreate(Bundle savedInstanceState)
         {
             base.OnPostCreate(savedInstanceState);
-            mDrawerToggle.SyncState();
-            mCurrentFragment.updateCurrentCropViewOptions();
+            _drawerToggle.SyncState();
+            _currentFragment.UpdateCurrentCropViewOptions();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -79,11 +79,11 @@ namespace App4
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (mDrawerToggle.OnOptionsItemSelected(item))
+            if (_drawerToggle.OnOptionsItemSelected(item))
             {
                 return true;
             }
-            if (mCurrentFragment != null && mCurrentFragment.OnOptionsItemSelected(item))
+            if (_currentFragment != null && _currentFragment.OnOptionsItemSelected(item))
             {
                 return true;
             }
@@ -97,7 +97,7 @@ namespace App4
             if (requestCode == CropImage.PickImageChooserRequestCode && resultCode == Result.Ok)
             {
                 var imageUri = CropImage.GetPickImageResultUri(this, data);
-
+                
                 // For API >= 23 we need to check specifically that we have permissions to read external storage,
                 // but we don't know if we need to for the URI so the simplest is to try open the stream and see if we get error.
                 var requirePermissions = false;
@@ -106,14 +106,14 @@ namespace App4
 
                     // request permissions and handle the result in onRequestPermissionsResult()
                     requirePermissions = true;
-                    mCropImageUri = imageUri;
+                    _cropImageUri = imageUri;
 
-                    RequestPermissions(new string[] { Manifest.Permission.ReadExternalStorage }, CropImage.PickImagePermissionsRequestCode);
+                    RequestPermissions(new[] { Manifest.Permission.ReadExternalStorage }, CropImage.PickImagePermissionsRequestCode);
                 }
                 else
                 {
 
-                    mCurrentFragment.setImageUri(imageUri);
+                    _currentFragment.setImageUri(imageUri);
                 }
             }
         }
@@ -133,9 +133,9 @@ namespace App4
             }
             if (requestCode == CropImage.PickImagePermissionsRequestCode)
             {
-                if (mCropImageUri != null && grantResults.Length > 0 && grantResults[0] == Permission.Granted)
+                if (_cropImageUri != null && grantResults.Length > 0 && grantResults[0] == Permission.Granted)
                 {
-                    mCurrentFragment.setImageUri(mCropImageUri);
+                    _currentFragment.setImageUri(_cropImageUri);
                 }
                 else
                 {
@@ -144,12 +144,7 @@ namespace App4
             }
         }
 
-
-
-
-
         [Export("onDrawerOptionClicked")]
-
         public void onDrawerOptionClicked(View view)
         {
             switch (view.Id)
@@ -157,111 +152,116 @@ namespace App4
                 case Resource.Id.drawer_option_load:
                     if (CropImage.IsExplicitCameraPermissionRequired(this))
                     {
-                        RequestPermissions(new string[] { Manifest.Permission.Camera }, CropImage.CameraCapturePermissionsRequestCode);
+                        RequestPermissions(new[] { Manifest.Permission.Camera }, CropImage.CameraCapturePermissionsRequestCode);
                     }
                     else
                     {
                         CropImage.StartPickImageActivity(this);
                     }
-                    mDrawerLayout.CloseDrawers();
+                    _drawerLayout.CloseDrawers();
                     break;
                 case Resource.Id.drawer_option_oval:
-                    setMainFragmentByPreset(CropDemoPreset.CIRCULAR);
-                    mDrawerLayout.CloseDrawers();
+                    SetMainFragmentByPreset(CropDemoPreset.Circular);
+                    _drawerLayout.CloseDrawers();
                     break;
                 case Resource.Id.drawer_option_rect:
-                    setMainFragmentByPreset(CropDemoPreset.RECT);
-                    mDrawerLayout.CloseDrawers();
+                    SetMainFragmentByPreset(CropDemoPreset.Rect);
+                    _drawerLayout.CloseDrawers();
                     break;
                 case Resource.Id.drawer_option_customized_overlay:
-                    setMainFragmentByPreset(CropDemoPreset.CUSTOMIZED_OVERLAY);
-                    mDrawerLayout.CloseDrawers();
+                    SetMainFragmentByPreset(CropDemoPreset.CustomizedOverlay);
+                    _drawerLayout.CloseDrawers();
                     break;
                 case Resource.Id.drawer_option_min_max_override:
-                    setMainFragmentByPreset(CropDemoPreset.MIN_MAX_OVERRIDE);
-                    mDrawerLayout.CloseDrawers();
+                    SetMainFragmentByPreset(CropDemoPreset.MinMaxOverride);
+                    _drawerLayout.CloseDrawers();
                     break;
                 case Resource.Id.drawer_option_scale_center:
-                    setMainFragmentByPreset(CropDemoPreset.SCALE_CENTER_INSIDE);
-                    mDrawerLayout.CloseDrawers();
+                    SetMainFragmentByPreset(CropDemoPreset.ScaleCenterInside);
+                    _drawerLayout.CloseDrawers();
                     break;
                 case Resource.Id.drawer_option_toggle_scale:
-                    mCropImageViewOptions.scaleType = mCropImageViewOptions.scaleType == CropImageView.ScaleType.FitCenter
-                            ? CropImageView.ScaleType.CenterInside : mCropImageViewOptions.scaleType == CropImageView.ScaleType.CenterInside
-                            ? CropImageView.ScaleType.Center : mCropImageViewOptions.scaleType == CropImageView.ScaleType.Center
+                    _cropImageViewOptions.ScaleType = _cropImageViewOptions.ScaleType == CropImageView.ScaleType.FitCenter
+                            ? CropImageView.ScaleType.CenterInside : _cropImageViewOptions.ScaleType == CropImageView.ScaleType.CenterInside
+                            ? CropImageView.ScaleType.Center : _cropImageViewOptions.ScaleType == CropImageView.ScaleType.Center
                             ? CropImageView.ScaleType.CenterCrop : CropImageView.ScaleType.FitCenter;
-                    mCurrentFragment.setCropImageViewOptions(mCropImageViewOptions);
-                    updateDrawerTogglesByOptions(mCropImageViewOptions);
+                    _currentFragment.SetCropImageViewOptions(_cropImageViewOptions);
+                    UpdateDrawerTogglesByOptions(_cropImageViewOptions);
                     break;
                 case Resource.Id.drawer_option_toggle_shape:
-                    mCropImageViewOptions.cropShape = mCropImageViewOptions.cropShape == CropImageView.CropShape.Rectangle
+                    _cropImageViewOptions.CropShape = _cropImageViewOptions.CropShape == CropImageView.CropShape.Rectangle
                             ? CropImageView.CropShape.Oval : CropImageView.CropShape.Rectangle;
-                    mCurrentFragment.setCropImageViewOptions(mCropImageViewOptions);
-                    updateDrawerTogglesByOptions(mCropImageViewOptions);
+                    _currentFragment.SetCropImageViewOptions(_cropImageViewOptions);
+                    UpdateDrawerTogglesByOptions(_cropImageViewOptions);
                     break;
                 case Resource.Id.drawer_option_toggle_guidelines:
-                    mCropImageViewOptions.guidelines = mCropImageViewOptions.guidelines == CropImageView.Guidelines.Off
-                            ? CropImageView.Guidelines.On : mCropImageViewOptions.guidelines == CropImageView.Guidelines.On
+                    _cropImageViewOptions.Guidelines = _cropImageViewOptions.Guidelines == CropImageView.Guidelines.Off
+                            ? CropImageView.Guidelines.On : _cropImageViewOptions.Guidelines == CropImageView.Guidelines.On
                             ? CropImageView.Guidelines.OnTouch : CropImageView.Guidelines.Off;
-                    mCurrentFragment.setCropImageViewOptions(mCropImageViewOptions);
-                    updateDrawerTogglesByOptions(mCropImageViewOptions);
+                    _currentFragment.SetCropImageViewOptions(_cropImageViewOptions);
+                    UpdateDrawerTogglesByOptions(_cropImageViewOptions);
                     break;
                 case Resource.Id.drawer_option_toggle_aspect_ratio:
-                    if (!mCropImageViewOptions.fixAspectRatio)
+                    if (!_cropImageViewOptions.FixAspectRatio)
                     {
-                        mCropImageViewOptions.fixAspectRatio = true;
-                        mCropImageViewOptions.aspectRatio = new Android.Util.Pair(1, 1);
+                        _cropImageViewOptions.FixAspectRatio = true;
+                        _cropImageViewOptions.AspectRatio = (1, 1);
                     }
                     else
                     {
-                        if ((int)mCropImageViewOptions.aspectRatio.First == 1 && (int)mCropImageViewOptions.aspectRatio.Second == 1)
+                        if (_cropImageViewOptions.AspectRatio.AspectRatioX == 1 && _cropImageViewOptions.AspectRatio.AspectRatioY == 1)
                         {
-                            mCropImageViewOptions.aspectRatio = new Android.Util.Pair(4, 3);
+                            _cropImageViewOptions.AspectRatio = (4, 3);
                         }
-                        else if ((int)mCropImageViewOptions.aspectRatio.First == 4 && (int)mCropImageViewOptions.aspectRatio.Second == 3)
+                        else if (_cropImageViewOptions.AspectRatio.AspectRatioX == 4 && _cropImageViewOptions.AspectRatio.AspectRatioY == 3)
                         {
-                            mCropImageViewOptions.aspectRatio = new Android.Util.Pair(16, 9);
+                            _cropImageViewOptions.AspectRatio = (16, 9);
                         }
-                        else if ((int)mCropImageViewOptions.aspectRatio.First == 16 && (int)mCropImageViewOptions.aspectRatio.Second == 9)
+                        else if (_cropImageViewOptions.AspectRatio.AspectRatioX == 16 && _cropImageViewOptions.AspectRatio.AspectRatioY == 9)
                         {
-                            mCropImageViewOptions.aspectRatio = new Android.Util.Pair(9, 16);
+                            _cropImageViewOptions.AspectRatio = (9, 16);
                         }
                         else
                         {
-                            mCropImageViewOptions.fixAspectRatio = false;
+                            _cropImageViewOptions.FixAspectRatio = false;
                         }
                     }
-                    mCurrentFragment.setCropImageViewOptions(mCropImageViewOptions);
-                    updateDrawerTogglesByOptions(mCropImageViewOptions);
+                    _currentFragment.SetCropImageViewOptions(_cropImageViewOptions);
+                    UpdateDrawerTogglesByOptions(_cropImageViewOptions);
                     break;
                 case Resource.Id.drawer_option_toggle_auto_zoom:
-                    mCropImageViewOptions.autoZoomEnabled = !mCropImageViewOptions.autoZoomEnabled;
-                    mCurrentFragment.setCropImageViewOptions(mCropImageViewOptions);
-                    updateDrawerTogglesByOptions(mCropImageViewOptions);
+                    _cropImageViewOptions.AutoZoomEnabled = !_cropImageViewOptions.AutoZoomEnabled;
+                    _currentFragment.SetCropImageViewOptions(_cropImageViewOptions);
+                    UpdateDrawerTogglesByOptions(_cropImageViewOptions);
                     break;
                 case Resource.Id.drawer_option_toggle_max_zoom:
-                    mCropImageViewOptions.maxZoomLevel = mCropImageViewOptions.maxZoomLevel == 4 ? 8
-                            : mCropImageViewOptions.maxZoomLevel == 8 ? 2 : 4;
-                    mCurrentFragment.setCropImageViewOptions(mCropImageViewOptions);
-                    updateDrawerTogglesByOptions(mCropImageViewOptions);
+                    _cropImageViewOptions.MaxZoomLevel = _cropImageViewOptions.MaxZoomLevel == 4 ? 8
+                            : _cropImageViewOptions.MaxZoomLevel == 8 ? 2 : 4;
+                    _currentFragment.SetCropImageViewOptions(_cropImageViewOptions);
+                    UpdateDrawerTogglesByOptions(_cropImageViewOptions);
                     break;
                 case Resource.Id.drawer_option_set_initial_crop_rect:
-                    mCurrentFragment.setInitialCropRect();
-                    mDrawerLayout.CloseDrawers();
+                    _currentFragment.SetInitialCropRect();
+                    _drawerLayout.CloseDrawers();
                     break;
                 case Resource.Id.drawer_option_reset_crop_rect:
-                    mCurrentFragment.resetCropRect();
-                    mDrawerLayout.CloseDrawers();
+                    _currentFragment.ResetCropRect();
+                    _drawerLayout.CloseDrawers();
+                    break;
+                case Resource.Id.drawer_option_toggle_multitouch:
+                    _cropImageViewOptions.Multitouch = !_cropImageViewOptions.Multitouch;
+                    _currentFragment.SetCropImageViewOptions(_cropImageViewOptions);
+                    UpdateDrawerTogglesByOptions(_cropImageViewOptions);
                     break;
                 case Resource.Id.drawer_option_toggle_show_overlay:
-                    mCropImageViewOptions.showCropOverlay = !mCropImageViewOptions.showCropOverlay;
-                    mCurrentFragment.setCropImageViewOptions(mCropImageViewOptions);
-                    updateDrawerTogglesByOptions(mCropImageViewOptions);
+                    _cropImageViewOptions.ShowCropOverlay = !_cropImageViewOptions.ShowCropOverlay;
+                    _currentFragment.SetCropImageViewOptions(_cropImageViewOptions);
+                    UpdateDrawerTogglesByOptions(_cropImageViewOptions);
                     break;
                 case Resource.Id.drawer_option_toggle_show_progress_bar:
-                    mCropImageViewOptions.showProgressBar = !mCropImageViewOptions.showProgressBar;
-                    mCurrentFragment.setCropImageViewOptions(mCropImageViewOptions);
-                    updateDrawerTogglesByOptions(mCropImageViewOptions);
+                    _cropImageViewOptions.ShowProgressBar = !_cropImageViewOptions.ShowProgressBar;
+                    _currentFragment.SetCropImageViewOptions(_cropImageViewOptions);
+                    UpdateDrawerTogglesByOptions(_cropImageViewOptions);
                     break;
                 default:
                     Toast.MakeText(this, "Unknown drawer option clicked", ToastLength.Long).Show();
@@ -269,31 +269,32 @@ namespace App4
             }
         }
 
-        private void setMainFragmentByPreset(CropDemoPreset demoPreset)
+        private void SetMainFragmentByPreset(CropDemoPreset demoPreset)
         {
             var fragmentManager = SupportFragmentManager;
             fragmentManager.BeginTransaction()
-                    .Replace(Resource.Id.container, MainFragment.newInstance(demoPreset))
+                    .Replace(Resource.Id.container, MainFragment.NewInstance(demoPreset))
                     .Commit();
         }
 
-        private void updateDrawerTogglesByOptions(CropImageViewOptions options)
+        private void UpdateDrawerTogglesByOptions(CropImageViewOptions options)
         {
-            ((TextView)FindViewById(Resource.Id.drawer_option_toggle_scale)).Text = Resources.GetString(Resource.String.drawer_option_toggle_scale, options.scaleType.Name());
-            ((TextView)FindViewById(Resource.Id.drawer_option_toggle_shape)).Text = Resources.GetString(Resource.String.drawer_option_toggle_shape, options.cropShape.Name());
-            ((TextView)FindViewById(Resource.Id.drawer_option_toggle_guidelines)).Text = Resources.GetString(Resource.String.drawer_option_toggle_guidelines, options.guidelines.Name());
-            ((TextView)FindViewById(Resource.Id.drawer_option_toggle_show_overlay)).Text = Resources.GetString(Resource.String.drawer_option_toggle_show_overlay, options.showCropOverlay.ToString());
-            ((TextView)FindViewById(Resource.Id.drawer_option_toggle_show_progress_bar)).Text = Resources.GetString(Resource.String.drawer_option_toggle_show_progress_bar, options.showProgressBar.ToString());
+            FindViewById<TextView>(Resource.Id.drawer_option_toggle_scale).Text = Resources.GetString(Resource.String.drawer_option_toggle_scale, options.ScaleType.Name());
+            FindViewById<TextView>(Resource.Id.drawer_option_toggle_shape).Text = Resources.GetString(Resource.String.drawer_option_toggle_shape, options.CropShape.Name());
+            FindViewById<TextView>(Resource.Id.drawer_option_toggle_guidelines).Text = Resources.GetString(Resource.String.drawer_option_toggle_guidelines, options.Guidelines.Name());
+            FindViewById<TextView>(Resource.Id.drawer_option_toggle_multitouch).Text = Resources.GetString(Resource.String.drawer_option_toggle_multitouch, options.Multitouch.ToString());
+            FindViewById<TextView>(Resource.Id.drawer_option_toggle_show_overlay).Text = Resources.GetString(Resource.String.drawer_option_toggle_show_overlay, options.ShowCropOverlay.ToString());
+            FindViewById<TextView>(Resource.Id.drawer_option_toggle_show_progress_bar).Text = Resources.GetString(Resource.String.drawer_option_toggle_show_progress_bar, options.ShowProgressBar.ToString());
 
             var aspectRatio = "FREE";
-            if (options.fixAspectRatio)
+            if (options.FixAspectRatio)
             {
-                aspectRatio = options.aspectRatio.First + ":" + options.aspectRatio.Second;
+                aspectRatio = options.AspectRatio.AspectRatioX + ":" + options.AspectRatio.AspectRatioY;
             }
             ((TextView)FindViewById(Resource.Id.drawer_option_toggle_aspect_ratio)).Text = Resources.GetString(Resource.String.drawer_option_toggle_aspect_ratio, aspectRatio);
 
-            ((TextView)FindViewById(Resource.Id.drawer_option_toggle_auto_zoom)).Text = Resources.GetString(Resource.String.drawer_option_toggle_auto_zoom, options.autoZoomEnabled ? "Enabled" : "Disabled");
-            ((TextView)FindViewById(Resource.Id.drawer_option_toggle_max_zoom)).Text = Resources.GetString(Resource.String.drawer_option_toggle_max_zoom, options.maxZoomLevel);
+            ((TextView)FindViewById(Resource.Id.drawer_option_toggle_auto_zoom)).Text = Resources.GetString(Resource.String.drawer_option_toggle_auto_zoom, options.AutoZoomEnabled ? "Enabled" : "Disabled");
+            ((TextView)FindViewById(Resource.Id.drawer_option_toggle_max_zoom)).Text = Resources.GetString(Resource.String.drawer_option_toggle_max_zoom, options.MaxZoomLevel);
         }
     }
 }

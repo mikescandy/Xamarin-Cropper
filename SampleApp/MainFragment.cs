@@ -2,31 +2,32 @@ using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.OS;
+using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Com.Theartofdev.Edmodo.Cropper;
 using Java.Lang;
 
-namespace App4
+namespace SampleApp
 {
-    public class MainFragment : Android.Support.V4.App.Fragment, CropImageView.IOnSetImageUriCompleteListener, CropImageView.IOnGetCroppedImageCompleteListener
+    public class MainFragment : Android.Support.V4.App.Fragment, CropImageView.IOnSetImageUriCompleteListener, CropImageView.IOnCropImageCompleteListener
     {
 
         //region: Fields and Consts
 
-        private CropDemoPreset mDemoPreset;
+        private CropDemoPreset _demoPreset;
 
-        private CropImageView mCropImageView;
+        private CropImageView _cropImageView;
         //endregion
 
         /**
          * Returns a new instance of this fragment for the given section number.
          */
-        public static MainFragment newInstance(CropDemoPreset demoPreset)
+        public static MainFragment NewInstance(CropDemoPreset demoPreset)
         {
-            MainFragment fragment = new MainFragment();
-            Bundle args = new Bundle();
+            var fragment = new MainFragment();
+            var args = new Bundle();
             args.PutString("DEMO_PRESET", demoPreset.ToString());
             fragment.Arguments = args;
             return fragment;
@@ -37,82 +38,86 @@ namespace App4
          */
         public void setImageUri(Android.Net.Uri imageUri)
         {
-            mCropImageView.SetImageUriAsync(imageUri);
-            //        CropImage.activity(imageUri)
-            //                .start(getContext(), this);
+            _cropImageView.SetImageUriAsync(imageUri);
         }
 
         /**
          * Set the options of the crop image view to the given values.
          */
-        public void setCropImageViewOptions(CropImageViewOptions options)
+        public void SetCropImageViewOptions(CropImageViewOptions options)
         {
-            mCropImageView.SetScaleType(options.scaleType);
-            mCropImageView.SetCropShape(options.cropShape);
-            mCropImageView.SetGuidelines(options.guidelines);
-            mCropImageView.SetAspectRatio((int)options.aspectRatio.First, (int)options.aspectRatio.Second);
-            mCropImageView.SetFixedAspectRatio(options.fixAspectRatio);
-            mCropImageView.ShowCropOverlay = options.showCropOverlay;
-            mCropImageView.ShowProgressBar = options.showProgressBar;
-            mCropImageView.AutoZoomEnabled = options.autoZoomEnabled;
-            mCropImageView.MaxZoom = options.maxZoomLevel;
+            _cropImageView.SetScaleType(options.ScaleType);
+            _cropImageView.SetCropShape(options.CropShape);
+            _cropImageView.SetGuidelines(options.Guidelines);
+            _cropImageView.SetAspectRatio(options.AspectRatio.AspectRatioX, options.AspectRatio.AspectRatioY);
+            _cropImageView.SetFixedAspectRatio(options.FixAspectRatio);
+            _cropImageView.SetMultiTouchEnabled(options.Multitouch);
+            _cropImageView.ShowCropOverlay = options.ShowCropOverlay;
+            _cropImageView.ShowProgressBar = options.ShowProgressBar;
+            _cropImageView.AutoZoomEnabled = options.AutoZoomEnabled;
+            _cropImageView.MaxZoom = options.MaxZoomLevel;
+            _cropImageView.FlippedHorizontally = options.FlipHorizontally;
+            _cropImageView.FlippedVertically = options.FlipVertically;
         }
 
         /**
          * Set the initial rectangle to use.
          */
-        public void setInitialCropRect()
+        public void SetInitialCropRect()
         {
-            mCropImageView.CropRect = new Rect(100, 300, 500, 1200);
+            _cropImageView.CropRect = new Rect(100, 300, 500, 1200);
         }
 
         /**
          * Reset crop window to initial rectangle.
          */
-        public void resetCropRect()
+        public void ResetCropRect()
         {
-            mCropImageView.ResetCropRect();
+            _cropImageView.ResetCropRect();
         }
 
-        public void updateCurrentCropViewOptions()
+        public void UpdateCurrentCropViewOptions()
         {
             CropImageViewOptions options = new CropImageViewOptions();
-            options.scaleType = mCropImageView.GetScaleType();
-            options.cropShape = mCropImageView.GetCropShape();
-            options.guidelines = mCropImageView.GetGuidelines();
-            options.aspectRatio = mCropImageView.AspectRatio;
-            options.fixAspectRatio = mCropImageView.IsFixAspectRatio;
-            options.showCropOverlay = mCropImageView.ShowCropOverlay;
-            options.showProgressBar = mCropImageView.ShowProgressBar;
-            options.autoZoomEnabled = mCropImageView.AutoZoomEnabled;
-            options.maxZoomLevel = mCropImageView.MaxZoom;
-            ((MainActivity)Activity).setCurrentOptions(options);
+            options.ScaleType = _cropImageView.GetScaleType();
+            options.CropShape = _cropImageView.GetCropShape();
+            options.Guidelines = _cropImageView.GetGuidelines();
+            options.AspectRatio = ((int)_cropImageView.AspectRatio.First, (int)_cropImageView.AspectRatio.Second);
+            options.FixAspectRatio = _cropImageView.IsFixAspectRatio;
+            options.ShowCropOverlay = _cropImageView.ShowCropOverlay;
+            options.ShowProgressBar = _cropImageView.ShowProgressBar;
+            options.AutoZoomEnabled = _cropImageView.AutoZoomEnabled;
+            options.MaxZoomLevel = _cropImageView.MaxZoom;
+            options.FlipHorizontally = _cropImageView.FlippedHorizontally;
+            options.FlipVertically = _cropImageView.FlippedVertically;
+            ((MainActivity)Activity).SetCurrentOptions(options);
         }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             View rootView;
-            switch (mDemoPreset)
+            switch (_demoPreset)
             {
-                case CropDemoPreset.RECT:
+                case CropDemoPreset.Rect:
                     rootView = inflater.Inflate(Resource.Layout.fragment_main_rect, container, false);
                     break;
-                case CropDemoPreset.CIRCULAR:
+                case CropDemoPreset.Circular:
                     rootView = inflater.Inflate(Resource.Layout.fragment_main_oval, container, false);
                     break;
-                case CropDemoPreset.CUSTOMIZED_OVERLAY:
+                case CropDemoPreset.CustomizedOverlay:
                     rootView = inflater.Inflate(Resource.Layout.fragment_main_customized, container, false);
                     break;
-                case CropDemoPreset.MIN_MAX_OVERRIDE:
+                case CropDemoPreset.MinMaxOverride:
                     rootView = inflater.Inflate(Resource.Layout.fragment_main_min_max, container, false);
                     break;
-                case CropDemoPreset.SCALE_CENTER_INSIDE:
+                case CropDemoPreset.ScaleCenterInside:
                     rootView = inflater.Inflate(Resource.Layout.fragment_main_scale_center, container, false);
                     break;
-                case CropDemoPreset.CUSTOM:
+                case CropDemoPreset.Custom:
                     rootView = inflater.Inflate(Resource.Layout.fragment_main_rect, container, false);
                     break;
                 default:
-                    throw new IllegalStateException("Unknown preset: " + mDemoPreset);
+                    throw new IllegalStateException("Unknown preset: " + _demoPreset);
             }
             return rootView;
         }
@@ -121,53 +126,65 @@ namespace App4
         {
             base.OnViewCreated(view, savedInstanceState);
 
-            mCropImageView = (CropImageView)view.FindViewById(Resource.Id.cropImageView);
-            mCropImageView.SetOnSetImageUriCompleteListener(this);
-            mCropImageView.SetOnGetCroppedImageCompleteListener(this);
+            _cropImageView = (CropImageView)view.FindViewById(Resource.Id.cropImageView);
+            _cropImageView.SetOnSetImageUriCompleteListener(this);
+            _cropImageView.SetOnCropImageCompleteListener(this);
 
-            updateCurrentCropViewOptions();
+            UpdateCurrentCropViewOptions();
 
             if (savedInstanceState == null)
             {
-                if (mDemoPreset == CropDemoPreset.SCALE_CENTER_INSIDE)
+                if (_demoPreset == CropDemoPreset.ScaleCenterInside)
                 {
-                    mCropImageView.ImageResource = Resource.Drawable.cat_small;
+                    _cropImageView.ImageResource = Resource.Drawable.cat_small;
                 }
                 else
                 {
-                    mCropImageView.ImageResource = Resource.Drawable.cat;
+                    _cropImageView.ImageResource = Resource.Drawable.cat;
                 }
             }
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            if (item.ItemId == Resource.Id.main_action_crop)
+            switch (item.ItemId)
             {
-                mCropImageView.GetCroppedImageAsync();
-                return true;
-            }
-            else if (item.ItemId == Resource.Id.main_action_rotate)
-            {
-                mCropImageView.RotateImage(90);
-                return true;
+                case Resource.Id.main_action_crop:
+                    _cropImageView.GetCroppedImageAsync();
+                    return true;
+                case Resource.Id.main_action_rotate:
+                    _cropImageView.RotateImage(90);
+                    return true;
+                default:
+                    if (item.ItemId == Resource.Id.main_action_flip_horizontally)
+                    {
+                        _cropImageView.FlipImageHorizontally();
+                        return true;
+                    }
+                    else if (item.ItemId == Resource.Id.main_action_flip_vertically)
+                    {
+                        _cropImageView.FlipImageVertically();
+                        return true;
+                    }
+                    break;
             }
             return base.OnOptionsItemSelected(item);
         }
+
         public override void OnAttach(Activity activity)
         {
             base.OnAttach(activity);
-            mDemoPreset = (CropDemoPreset)System.Enum.Parse(typeof(CropDemoPreset), Arguments.GetString("DEMO_PRESET"));
-            ((MainActivity)activity).setCurrentFragment(this);
+            _demoPreset = (CropDemoPreset)System.Enum.Parse(typeof(CropDemoPreset), Arguments.GetString("DEMO_PRESET"));
+            ((MainActivity)activity).SetCurrentFragment(this);
         }
 
         public override void OnDetach()
         {
             base.OnDetach();
-            if (mCropImageView != null)
+            if (_cropImageView != null)
             {
-                mCropImageView.SetOnSetImageUriCompleteListener(null);
-                mCropImageView.SetOnGetCroppedImageCompleteListener(null);
+                _cropImageView.SetOnSetImageUriCompleteListener(null);
+                _cropImageView.SetOnCropImageCompleteListener(null);
             }
         }
 
@@ -184,39 +201,40 @@ namespace App4
             }
         }
 
-        public void OnGetCroppedImageComplete(CropImageView view, Bitmap bitmap, Java.Lang.Exception error)
-        {
-            handleCropResult(null, bitmap, error);
-
-        }
-
         public override void OnActivityResult(int requestCode, int resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
             if (requestCode == CropImage.CropImageActivityRequestCode)
             {
                 CropImage.ActivityResult result = CropImage.GetActivityResult(data);
-                handleCropResult(result.Uri, null, result.Error);
+                HandleCropResult(result);
             }
         }
 
-        private void handleCropResult(Android.Net.Uri uri, Bitmap bitmap, Java.Lang.Exception error)
+        private void HandleCropResult(CropImageView.CropResult result)
         {
-            if (error == null)
+            if (result.Error == null)
             {
                 Intent intent = new Intent(Activity, typeof(CropResultActivity));
-                if (uri != null) {
-                    intent.PutExtra("URI", uri);
+                intent.PutExtra("SAMPLE_SIZE", result.SampleSize);
+                if (result.Uri != null) {
+                    intent.PutExtra("URI", result.Uri);
                 } else {
-                    CropResultActivity.mImage = mCropImageView.GetCropShape() == CropImageView.CropShape.Oval
-                        ? CropImage.ToOvalBitmap(bitmap)
-                        : bitmap;
+                    CropResultActivity.Image =
+                        _cropImageView.GetCropShape() == CropImageView.CropShape.Oval
+                            ? CropImage.ToOvalBitmap(result.Bitmap)
+                            : result.Bitmap;
                 }
                 StartActivity(intent);
             } else {
-                Log.Error("AIC", "Failed to crop image", error);
-                Toast.MakeText(Activity, "Image crop failed: " + error.Message, ToastLength.Long).Show();
+                Log.Error("AIC", "Failed to crop image", result.Error);
+                Toast.MakeText(Activity, "Image crop failed: " + result.Error.Message, ToastLength.Long).Show();
             }
+        }
+
+        public void OnCropImageComplete(CropImageView view, CropImageView.CropResult result)
+        {
+            HandleCropResult(result);
         }
     }
 }
